@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Mongo CRUD Application
+
+This is a CRUD (Create, Read, Update, Delete) application built with Next.js and MongoDB. It provides a platform for users to create, read, update, and delete posts.
+
+# Frontend
+
+## Technologies Used
+
+- Next.js
+- MongoDB
+- React
+- Tailwind CSS
+- ESLint
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+npm
+
+1. Run npm install to get all current packages
+   ```sh
+   npm install npm@latest -g
+   ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Mongo-CRUD-Blog-App.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+## Usage
+
+To start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## API Documentation
 
-## Learn More
+This application provides a RESTful API which is used to manage blog topics. The API is built with Next.js and MongoDB.
 
-To learn more about Next.js, take a look at the following resources:
+### Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### GET /api/topics
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This endpoint is used to retrieve all topics. It does not require any parameters.
 
-## Deploy on Vercel
+#### POST /api/topics
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This endpoint is used to create a new topic. It requires a JSON body with the following structure:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```json
+{
+  "title": "Topic Title",
+  "description": "Topic Description"
+}
+```
+
+#### DELETE /api/topics
+
+This endpoint is used to delete a topic. It requires a query parameter `id` which is the ID of the topic to be deleted.
+
+#### GET /api/topics/[id]
+
+This endpoint is used to retrieve a specific topic by its ID. It requires a path parameter `id` which is the ID of the topic.
+
+#### PUT /api/topics/[id]
+
+This endpoint is used to update a specific topic by its ID. It requires a path parameter `id` which is the ID of the topic, and a JSON body with the following structure:
+
+```json
+{
+  "newTitle": "New Topic Title",
+  "newDescription": "New Topic Description"
+}
+```
+
+### Error Handling
+
+The API uses standard HTTP status codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, etc.), and codes in the 5xx range indicate an error with the server.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
